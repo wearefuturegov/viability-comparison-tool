@@ -1,0 +1,66 @@
+%div#map
+
+:css
+  #map {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+  }
+
+:javascript
+
+  function initMap() {
+
+    var uluru = {lat: -25.344, lng: 131.036};
+
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 4, center: uluru});
+
+    var marker = new google.maps.Marker({position: uluru, map: map});
+  }
+%script{:async => "", :defer => "", :src => "https://maps.googleapis.com/maps/api/js?key=ENV['GOOGLE_MAPS_API_KEY=']&callback=initMap"}
+
+%table
+  %tr
+    %th Local Authority
+    %th Name
+    %th Location
+    %th Date
+    %th Gross Development Value
+    %th Construction Costs
+    %th Professional Fees
+    %th Developer Profit
+    %th Residual Land Value
+    %th Benchmark Land Value
+    %th Residential Units
+    %th Habitable Rooms
+    %th Commercial Area (square meters)
+
+  - @viability_appraisals.each do |viability_appraisal|
+    %tr
+      %td
+        = viability_appraisal.local_authority
+      %td
+        = viability_appraisal.name
+      %td
+        = viability_appraisal.location
+      %td
+        = viability_appraisal.date_submitted
+      %td
+        = viability_appraisal.gross_development_value
+      %td
+        = viability_appraisal.construction_costs
+      %td
+        = viability_appraisal.professional_fees
+      %td
+        = viability_appraisal.developer_profit
+      %td
+        = viability_appraisal.residual_land_value
+      %td
+        = viability_appraisal.benchmark_land_value
+      %td
+        = viability_appraisal.residential_units
+      %td
+        = viability_appraisal.habitable_rooms
+      %td
+        = viability_appraisal.commercial_area_square_meters
