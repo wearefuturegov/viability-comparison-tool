@@ -1,0 +1,11 @@
+<div id="map">
+  <%=
+    map(
+      :center => {
+        :latlng => [51.503505, -0.080587],
+        :zoom => 11
+      },
+      :markers => @viability_appraisal_markers
+  )
+  %>
+</div>
