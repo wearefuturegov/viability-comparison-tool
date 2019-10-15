@@ -5,7 +5,8 @@ class CreateViabilityAppraisals < ActiveRecord::Migration[5.2]
       t.string :local_authority_id
       t.string :application
       t.string :name
-      t.point :location
+      t.decimal :latitude, precision: 10, scale: 6
+      t.decimal :longitude, precision: 10, scale: 6
       t.date :date_submitted
       t.decimal :gross_development_value, precision: 15, scale: 2
       t.decimal :construction_costs, precision: 15, scale: 2
