@@ -1,5 +1,23 @@
 = render "map", markers: @viability_appraisal_markers
 
+- @viability_appraisals.each do |viability_appraisal|
+  .va
+    %h3
+      = viability_appraisal.name
+    %small
+      Completed:
+      = viability_appraisal.date_submitted
+    %p
+      Residential units:
+      = viability_appraisal.residential_units
+    %p
+      Habitual rooms:
+      = viability_appraisal.habitable_rooms
+    %p
+      Commercial size:
+      = viability_appraisal.commercial_area_square_meters
+
+
 %table
   %tr
     %th Local Authority
